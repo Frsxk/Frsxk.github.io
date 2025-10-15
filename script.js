@@ -247,7 +247,7 @@ async function fetchStatusFromPastebin() {
         const statusMessage = await response.text();
         
         // Update the status text
-        statusText.textContent = statusMessage.trim() || 'No status available';
+        statusText.textContent = statusMessage.trim() || 'you\'re cute 💕';
         statusText.classList.remove('hidden');
         statusText.classList.add('status-bubble-enter');
         statusLoading.classList.add('hidden');
@@ -255,7 +255,7 @@ async function fetchStatusFromPastebin() {
         
     } catch (error) {
         console.error('Error fetching status:', error);
-        statusText.textContent = 'Vibing to some tunes 🎵';
+        statusText.textContent = 'you\'re cute 💕';
         statusText.classList.remove('hidden');
         statusLoading.classList.add('hidden');
         statusLoading.classList.remove('flex');
