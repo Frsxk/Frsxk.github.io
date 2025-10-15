@@ -223,9 +223,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Status Fetching from Pastebin
-const PASTEBIN_RAW_URL = 'https://pastebin.com/raw/i6Q4YCpR'; // Replace with your actual Pastebin raw URL
-const STATUS_REFRESH_INTERVAL = 60000; // Refresh every 60 seconds (1 minute)
+// Status Fetching from GitHub Gist
+const STATUS_URL = 'https://gist.githubusercontent.com/Frsxk/7d053c0c47b8374d73c114f71797b3ff/raw/a91b9ed4fdb3c07bd7ebb1612dce8477649ca7c6/status.txt';
+const STATUS_REFRESH_INTERVAL = 60000; // Refresh every 60 seconds
 
 async function fetchStatusFromPastebin() {
     const statusText = document.getElementById('status-text');
@@ -237,7 +237,8 @@ async function fetchStatusFromPastebin() {
         statusLoading.classList.remove('hidden');
         statusLoading.classList.add('flex');
         
-        const response = await fetch(PASTEBIN_RAW_URL);
+        // Add cache busting to get fresh content
+        const response = await fetch(STATUS_URL + '?t=' + Date.now());
         
         if (!response.ok) {
             throw new Error('Failed to fetch status');
@@ -254,7 +255,7 @@ async function fetchStatusFromPastebin() {
         
     } catch (error) {
         console.error('Error fetching status:', error);
-        statusText.textContent = `you're cute 💕`;
+        statusText.textContent = 'Vibing to some tunes 🎵';
         statusText.classList.remove('hidden');
         statusLoading.classList.add('hidden');
         statusLoading.classList.remove('flex');
