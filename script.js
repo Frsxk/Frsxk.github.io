@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-function Link() {
-    window.open("https://discord.com/invite/2SatpX28ZX", "_blank");
-}
-=======
 // Theme Toggle
 const themeToggle = document.getElementById('theme-toggle');
 const htmlElement = document.documentElement;
@@ -273,4 +268,3 @@ document.addEventListener('DOMContentLoaded', () => {
     // Refresh status periodically
     setInterval(fetchStatusFromPastebin, STATUS_REFRESH_INTERVAL);
 });
->>>>>>> 165416e (Reworked GitHub Page for Frsxk)
