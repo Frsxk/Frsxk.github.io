@@ -1,0 +1,105 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/roboto-flex";
+@import "@fontsource-variable/jetbrains-mono";
+@import "./lib/m3e/m3e.css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --radius: 0.625rem;
+  --porto-pink: #ffb8bf;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto Flex Variable", "Roboto Flex", system-ui, sans-serif;
+  background: var(--md-sys-color-background);
+  color: var(--md-sys-color-on-background);
+  overflow-x: hidden;
+}
+
+html.light {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+/* Smooth dark ↔ light crossfade on M3E effects spring (color-only, so it
+   never fights Motion's transform/opacity animations). */
+body,
+body header,
+body footer,
+body section,
+body div,
+body span,
+body p,
+body h1,
+body h2,
+body a,
+body button,
+body kbd {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: var(--md-sys-motion-spring-default-effects-duration, 240ms);
+  transition-timing-function: var(--md-sys-motion-spring-default-effects);
+}
+
+::selection {
+  background: #ffb8bf;
+  color: #4a0d16;
+}
+
+code,
+pre {
+  font-family: "JetBrains Mono Variable", ui-monospace, monospace;
+}
+
+/* soft pink glow behind hero headline */
+.text-glow-pink {
+  text-shadow:
+    0 0 24px color-mix(in srgb, #ffb8bf 55%, transparent),
+    0 2px 40px color-mix(in srgb, #ffb8bf 35%, transparent);
+}
+
+/* marquee for tech strip */
+@keyframes porto-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-porto-marquee {
+  animation: porto-marquee 28s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-porto-marquee {
+    animation: none;
+  }
+  body,
+  body header,
+  body footer,
+  body section,
+  body div,
+  body span,
+  body p,
+  body h1,
+  body h2,
+  body a,
+  body button,
+  body kbd {
+    transition: none;
+  }
+}
