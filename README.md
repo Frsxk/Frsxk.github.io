@@ -1,98 +1,82 @@
-# frxskie.dev 🚀
+# frxskie.me
 
-> A modern, minimalist and cute portfolio website with dark/light theme toggle and dynamic status updates.
+Personal portfolio website built with React, TypeScript, Tailwind CSS, and Material 3 Expressive components.
 
-[![GitHub Pages](https://img.shields.io/badge/Deployed-GitHub%20Pages-blue?logo=github)](https://frxskie.dev)
-[![TailwindCSS](https://img.shields.io/badge/Styled%20with-TailwindCSS-38B2AC?logo=tailwind-css)](https://tailwindcss.com)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+Live site: [frxskie.me](https://frxskie.me)
 
-## ✨ Features
+## Features
 
-- 🎨 **Minimalist Design** - Clean and modern dark/light theme with pastel pink accents
-- 🌓 **Theme Toggle** - Smooth transition between dark and light modes with localStorage persistence
-- ⚡ **Animated Hero Section** - Dynamic typing animation with animated status logo
-- 💬 **Live Status Updates** - Real-time status fetched from Pastebin
-- 🎯 **Interactive Favorites** - Hover-animated cards showcasing favorite foods, games, and activities
-- 🚀 **Project Showcase** - Beautiful project cards with GitHub integration
-- ✨ **Particle Background** - Animated pastel pink particles for visual appeal
-- 📱 **Fully Responsive** - Optimized for all devices (mobile, tablet, desktop)
-- 🎭 **Scroll Animations** - Smooth animations as you scroll through sections
-- 📍 **Sticky Navigation** - Always-accessible header with smooth section scrolling
+- **Material 3 Expressive theme**: Custom pale-pink (`#ffb8bf`) scheme with expressive shapes and spring transitions.
+- **Theme switching**: Light and dark mode with persistence in `localStorage`.
+- **Hero section**: Looping typewriter headline and live status indicator backed by GitHub Gist polling.
+- **Favorites**: Category cards with image tiles covering foods, games, and activities.
+- **Project showcase**: Responsive project cards with preview screenshots and repository links.
+- **Connect**: Direct links to GitHub and Discord with filled back-to-top navigation.
+- **Responsive and accessible**: Mobile navigation, skip links, and semantic landmarks with respect for reduced-motion preferences.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-- **HTML5** - Semantic markup
-- **TailwindCSS** - Utility-first CSS framework
-- **Vanilla JavaScript** - No frameworks, pure JS
-- **GitHub Pages** - Hosting and deployment
-- **Pastebin API** - Dynamic status updates
+- **Framework**: React 19, TypeScript
+- **Styling**: Tailwind CSS v4, shadcn-m3e
+- **Animation**: Motion (motion/react)
+- **Icons**: Material Symbols via bundled Iconify data
+- **Bundler**: Vite 8
+- **Tooling**: Bun, Oxlint
+- **Hosting**: GitHub Pages
 
-## 📁 Project Structure
+## Project Structure
 
 ```
-Frsxk.github.io/
-├── index.html              # Main HTML file
-├── styles.css              # Compiled TailwindCSS output
-├── input.css               # TailwindCSS source with custom styles
-├── script.js               # JavaScript for animations and interactions
-├── tailwind.config.js      # TailwindCSS configuration
-├── package.json            # Node.js dependencies
-├── CNAME                   # Custom domain configuration
-├── .gitignore              # Git ignore rules
-├── README.md               # This file
-└── assets/
-    ├── images/
-    │   ├── profile.jpg     # Profile picture
-    │   ├── games/          # Games screenshots
-    │   └── projects/       # Project screenshots
-    └── favicon.ico         # Website icon
+.
+├── CNAME                  # Custom domain configuration (frxskie.me)
+├── assets/                # Static images and favicon
+├── scripts/               # Icon bundle generator (scripts/icons.mjs)
+├── src/
+│   ├── App.tsx            # Main layout and section composition
+│   ├── components/        # Portfolio sections and UI primitives
+│   │   └── m3e/           # Vendored shadcn-m3e components
+│   ├── data/              # Content configuration (portfolio.ts)
+│   ├── hooks/             # Status fetch hook (use-status.ts)
+│   ├── lib/m3e/           # M3 tokens, color utilities, and shape definitions
+│   ├── index.css          # Tailwind and Material tokens
+│   └── main.tsx           # Entry point and theme providers
+└── .github/workflows/     # GitHub Actions deployment workflow
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (v14 or higher)
-- [npm](https://www.npmjs.com/) (comes with Node.js)
-- Git
+- [Bun](https://bun.sh) (v1.2+)
 
-## 📝 Scripts
+### Development
+
+```bash
+bun install
+bun run dev
+```
+
+The development server runs at `http://127.0.0.1:5173`.
+
+### Scripts
 
 | Command | Description |
-|---------|-------------|
-| `npm run dev` | Start TailwindCSS in watch mode for development |
-| `npm run build` | Build and minify CSS for production |
+| --- | --- |
+| `bun run dev` | Start development server |
+| `bun run build` | Type-check and build production bundle to `dist/` |
+| `bun run preview` | Preview production build locally |
+| `bun run lint` | Lint code with Oxlint |
+| `bun run gen:icons` | Scan code and generate bundled icon data |
+| `bun run check:icons` | Verify bundled icons match usage |
 
-## 📄 License
+## Deployment
 
-This project is open source and available under the [MIT License](LICENSE).
+The repository uses `.github/workflows/pages.yml` to build and deploy to GitHub Pages on pushes to `main`.
 
-## 👤 Author
+During build, Vite copies `CNAME` and `assets/` into `dist/`. Custom domain routing requires corresponding DNS records pointing `frxskie.me` to GitHub Pages.
 
-**Frsxk**
+## License
 
-- GitHub: [@Frsxk](https://github.com/Frsxk)
-- Website: [frxskie.dev](https://frxskie.dev)
-- Discord: Join my [Discord Server](https://discord.gg/YOUR_INVITE_LINK)
+This project is licensed under the [MIT License](LICENSE).
 
-## 🙏 Acknowledgments
-
-- Design inspiration from modern portfolio websites
-- [TailwindCSS](https://tailwindcss.com) for the amazing utility-first framework
-- [Unsplash](https://unsplash.com) for stock images
-- [ImgBB](https://imgbb.com) for image hosting
-- GitHub Education Pack for the free domain
-
-## 📸 Screenshots
-
-### Dark Theme
-![Dark Theme](https://i.ibb.co.com/VYP8SN5Q/image-2025-10-15-201629230.png)
-
-### Light Theme
-![Light Theme](https://i.ibb.co.com/GvWCPgK5/image-2025-10-15-215412838.png)
-
----
-
-**Built with 💖 by Frsxk**
-
-*Last Updated: 2025-10-15*
+Vendored [shadcn-m3e](https://github.com/Crysta1221/shadcn-m3e) components are copyright 2026 Crysta1221 under the MIT License. Material tokens and ripple derive from Google Compose Material3 and Material Web (Apache-2.0). Shape definitions derive from [matraic/m3e](https://github.com/matraic/m3e) (MIT). Fonts (Roboto Flex, JetBrains Mono) are licensed under SIL Open Font License 1.1.
